@@ -7,5 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="character_selected">#C6EBF4</color>
+    <color name="button_selected">#C6EBF4</color>
+    <color name="button_default">#00ffffff</color>
 </resources>
