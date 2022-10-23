@@ -1,8 +1,6 @@
 package com.example.quiz_for_kids.presentation.ui.questions
 
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import com.example.quiz_for_kids.R
 import com.example.quiz_for_kids.databinding.ActivityQuestionsBinding
 import com.example.quiz_for_kids.presentation.models.AnswerModel
