@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Quiz For Kids</string>
+
+    <!-- Character Select -->
+    <string name="character_select_text">Escolha seu personagem</string>
+    <string name="confirm_character">Confirmar</string>
 </resources>

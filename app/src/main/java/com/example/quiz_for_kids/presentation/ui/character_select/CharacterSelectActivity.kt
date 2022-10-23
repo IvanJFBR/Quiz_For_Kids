@@ -1,4 +1,4 @@
-package com.example.quiz_for_kids.presentation.ui
+package com.example.quiz_for_kids.presentation.ui.character_select
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
