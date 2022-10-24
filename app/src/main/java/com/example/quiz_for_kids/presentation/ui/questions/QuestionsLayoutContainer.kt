@@ -7,14 +7,16 @@ import com.example.quiz_for_kids.R
 import com.example.quiz_for_kids.databinding.ActivityQuestionsBinding
 import com.example.quiz_for_kids.presentation.commons.components.AnswerButtonView
 import com.example.quiz_for_kids.presentation.extensions.gone
+import com.example.quiz_for_kids.presentation.extensions.startWithTransaction
 import com.example.quiz_for_kids.presentation.extensions.visible
 import com.example.quiz_for_kids.presentation.models.AnswerModel
-import com.example.quiz_for_kids.presentation.models.CharacterModel
 import com.example.quiz_for_kids.presentation.models.QuestionDataModel
+import com.example.quiz_for_kids.presentation.ui.result.ResultActivity
 
 class QuestionsLayoutContainer(
     private val activity: QuestionsActivity,
-    private val binding: ActivityQuestionsBinding
+    private val binding: ActivityQuestionsBinding,
+    private val characterSelected: Int
 ) {
     private val _selectedState = MutableLiveData<AnswerModel?>()
     private val selectedState: LiveData<AnswerModel?> get() = _selectedState
@@ -27,7 +29,8 @@ class QuestionsLayoutContainer(
 
     private var currentQuestion: QuestionDataModel = questionsData.getQuestions()[0]
 
-    fun initView(characterSelected: CharacterModel) = with(binding) {
+    fun initView() = with(binding) {
+        _currentPosition.value = 0
         questionList = questionsData.getQuestions()
         questionList.setAnswers()
     }
@@ -56,16 +59,17 @@ class QuestionsLayoutContainer(
                         setAnswerColor(true, selectedAnswer)
                     }
                     gone()
+                    nextQuestion.visible()
                 }
             }
 
-            nextQuestion.apply {
-                setOnClickListener {
-                    if (_currentPosition.value!! <= this@setAnswers.size - 1) {
-                        _currentPosition.value = _currentPosition.value?.plus(1)
-                    } else {
-
-                    }
+            nextQuestion.setOnClickListener {
+                if (_currentPosition.value!! < this@setAnswers.size - 1) {
+                    _currentPosition.value = _currentPosition.value?.plus(1)
+                    clearAnswersStyle()
+                } else {
+                    val intent = ResultActivity.newIntent(activity, characterSelected)
+                    activity.startWithTransaction(intent)
                 }
             }
         }

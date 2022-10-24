@@ -26,6 +26,7 @@ object QuestionsData {
            1,
            question_text = "Escolha o balão com o maior número de letras",
 
+           answersAreImage = false,
            option_one_text = "Paulo",
            option_two_text = "Ana",
            option_three_text = "Alexandre",

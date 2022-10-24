@@ -8,4 +8,9 @@
     <!-- Questions -->
     <string name="confirm_answer">Confirmar</string>
     <string name="next_question">Próxima</string>
+
+    <!-- Result -->
+    <string name="congratulations">Parabéns</string>
+    <string name="score">Sua pontuação é</string>
+    <string name="end_game">Finalizar</string>
 </resources>
