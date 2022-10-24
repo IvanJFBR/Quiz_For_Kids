@@ -1,11 +1,16 @@
 package com.example.quiz_for_kids.presentation.ui.questions
 
+import android.os.Parcelable
 import com.example.quiz_for_kids.R
 import com.example.quiz_for_kids.presentation.models.AnswerModel
 import com.example.quiz_for_kids.presentation.models.QuestionDataModel
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 
-object QuestionsData {
+@Parcelize
+object QuestionsData : Parcelable {
 
+    @IgnoredOnParcel
     var score: Int = 0
 
    fun getQuestions():ArrayList<QuestionDataModel>{
