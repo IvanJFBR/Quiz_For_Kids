@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="@string/score"
+                android:text="@string/score_title"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/card_title"
                 app:layout_constraintStart_toStartOf="@+id/card_title"
@@ -64,13 +64,14 @@
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:text="@string/score"
                 app:layout_constraintEnd_toEndOf="@+id/score_text"
                 app:layout_constraintStart_toStartOf="@+id/score_text"
                 app:layout_constraintTop_toBottomOf="@+id/score_text"
                 tools:text="4/5" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/next_question"
+                android:id="@+id/end_quiz"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

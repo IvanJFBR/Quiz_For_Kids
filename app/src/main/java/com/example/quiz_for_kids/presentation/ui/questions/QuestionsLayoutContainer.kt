@@ -25,13 +25,12 @@ class QuestionsLayoutContainer(
     private val currentPosition: LiveData<Int> get() = _currentPosition
 
     private var questionList: ArrayList<QuestionDataModel> = arrayListOf()
-    private val questionsData = QuestionsData
 
-    private var currentQuestion: QuestionDataModel = questionsData.getQuestions()[0]
+    private var currentQuestion: QuestionDataModel = QuestionsData.getQuestions()[0]
 
     fun initView() = with(binding) {
         _currentPosition.value = 0
-        questionList = questionsData.getQuestions()
+        questionList = QuestionsData.getQuestions()
         questionList.setAnswers()
     }
 
@@ -50,11 +49,15 @@ class QuestionsLayoutContainer(
 
         selectedState.observe(activity) { selectedAnswer ->
             submitAnswer.apply {
-                visible()
+                if(_selectedState.value == null) {
+                    gone()
+                } else {
+                    visible()
+                }
                 setOnClickListener {
                     if (currentQuestion.correct_ans == selectedAnswer) {
                         setAnswerColor(false, selectedAnswer)
-                        questionsData.score++
+                        QuestionsData.score++
                     } else {
                         setAnswerColor(true, selectedAnswer)
                     }
@@ -68,7 +71,10 @@ class QuestionsLayoutContainer(
                     _currentPosition.value = _currentPosition.value?.plus(1)
                     clearAnswersStyle()
                 } else {
-                    val intent = ResultActivity.newIntent(activity, characterSelected)
+                    val intent = ResultActivity.newIntent(
+                        activity,
+                        characterSelected
+                    )
                     activity.startWithTransaction(intent)
                 }
             }

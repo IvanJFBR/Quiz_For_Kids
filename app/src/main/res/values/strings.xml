@@ -11,6 +11,7 @@
 
     <!-- Result -->
     <string name="congratulations">Parabéns</string>
-    <string name="score">Sua pontuação é</string>
+    <string name="score_title">Sua pontuação é</string>
+    <string name="score">%s/%s</string>
     <string name="end_game">Finalizar</string>
 </resources>
