@@ -19,7 +19,7 @@
         android:layout_height="@dimen/character_select_size"
         android:gravity="center"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
