@@ -1,12 +1,12 @@
 package com.example.quiz_for_kids.presentation.ui.questions
 
 import com.example.quiz_for_kids.R
+import com.example.quiz_for_kids.presentation.models.AnswerModel
 import com.example.quiz_for_kids.presentation.models.QuestionDataModel
 
 object QuestionsData {
 
-    const val name:String="name"
-    const val score:String="score"
+    var score: Int = 0
 
    fun getQuestions():ArrayList<QuestionDataModel>{
        val que:ArrayList<QuestionDataModel> = arrayListOf()
@@ -20,7 +20,7 @@ object QuestionsData {
            option_two_image = R.drawable.boy_character_one,
            option_three_image = R.drawable.boy_character_one,
            option_four_image = R.drawable.boy_character_one,
-           correct_ans = 3
+           correct_ans = AnswerModel.ANSWER_ONE
        )
        val question2 = QuestionDataModel(
            1,
@@ -30,7 +30,7 @@ object QuestionsData {
            option_two_text = "Ana",
            option_three_text = "Alexandre",
            option_four_text = "Milena",
-           correct_ans = 3
+           correct_ans = AnswerModel.ANSWER_ONE
        )
        val question3 = QuestionDataModel(
            1,
@@ -40,7 +40,7 @@ object QuestionsData {
            option_two_text = "Ana",
            option_three_text = "Alexandre",
            option_four_text = "Milena",
-           correct_ans = 3
+           correct_ans = AnswerModel.ANSWER_ONE
        )
        val question4 = QuestionDataModel(
            1,
@@ -50,7 +50,7 @@ object QuestionsData {
            option_two_text = "Ana",
            option_three_text = "Alexandre",
            option_four_text = "Milena",
-           correct_ans = 3
+           correct_ans = AnswerModel.ANSWER_ONE
        )
 
        val question5 = QuestionDataModel(
@@ -61,7 +61,7 @@ object QuestionsData {
            option_two_text = "Ana",
            option_three_text = "Alexandre",
            option_four_text = "Milena",
-           correct_ans = 3
+           correct_ans = AnswerModel.ANSWER_ONE
        )
 
        que.add(question1)

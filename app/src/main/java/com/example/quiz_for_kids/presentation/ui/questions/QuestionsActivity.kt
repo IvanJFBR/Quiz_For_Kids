@@ -17,7 +17,7 @@ class QuestionsActivity : AppCompatActivity() {
     )
 
     private val layoutContainer: QuestionsLayoutContainer by lazy {
-        QuestionsLayoutContainer(binding)
+        QuestionsLayoutContainer(this@QuestionsActivity, binding)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

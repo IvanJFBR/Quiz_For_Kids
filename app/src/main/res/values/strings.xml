@@ -4,4 +4,8 @@
     <!-- Character Select -->
     <string name="character_select_text">Escolha seu personagem</string>
     <string name="confirm_character">Confirmar</string>
+
+    <!-- Questions -->
+    <string name="confirm_answer">Confirmar</string>
+    <string name="next_question">Próxima</string>
 </resources>

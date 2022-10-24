@@ -17,5 +17,5 @@ data class QuestionDataModel(
     var option_four_text: String? = null,
     var option_four_image: Int? = null,
 
-    var correct_ans: Int
+    var correct_ans: AnswerModel
 )
