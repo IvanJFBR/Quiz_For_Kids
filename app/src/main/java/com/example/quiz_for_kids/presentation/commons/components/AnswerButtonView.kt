@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.quiz_for_kids.databinding.AnswerButtonLayoutBinding
 import com.example.quiz_for_kids.presentation.extensions.gone
+import com.example.quiz_for_kids.presentation.extensions.visible
 
 class AnswerButtonView @JvmOverloads constructor(
     context: Context,
@@ -21,12 +22,14 @@ class AnswerButtonView @JvmOverloads constructor(
     fun setContentImage(imageResource: Int?) = with(binding) {
         if (imageResource != null) {
             characterImage.setImageResource(imageResource)
+            characterImage.visible()
         }
         characterText.gone()
     }
 
     fun setContentText(answerText: String?) = with(binding) {
         characterText.text = answerText ?: ""
+        characterText.visible()
         characterImage.gone()
     }
 }

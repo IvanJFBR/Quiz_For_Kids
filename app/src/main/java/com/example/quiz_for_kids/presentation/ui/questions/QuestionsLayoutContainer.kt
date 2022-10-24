@@ -37,14 +37,7 @@ class QuestionsLayoutContainer(
     private fun ArrayList<QuestionDataModel>.setAnswers() = with(binding) {
         currentPosition.observe(activity) {
             currentQuestion = this@setAnswers[it]
-        }
-
-        actQuestion.text = currentQuestion.question_text
-
-        if (currentQuestion.answersAreImage) {
-            setAnswersImage(currentQuestion)
-        } else {
-            setAnswersText(currentQuestion)
+            setCurrentQuestion()
         }
 
         selectedState.observe(activity) { selectedAnswer ->
@@ -57,7 +50,6 @@ class QuestionsLayoutContainer(
                 setOnClickListener {
                     if (currentQuestion.correct_ans == selectedAnswer) {
                         setAnswerColor(false, selectedAnswer)
-                        QuestionsData.score++
                     } else {
                         setAnswerColor(true, selectedAnswer)
                     }
@@ -67,6 +59,9 @@ class QuestionsLayoutContainer(
             }
 
             nextQuestion.setOnClickListener {
+                if (currentQuestion.correct_ans == selectedAnswer) {
+                    QuestionsData.score++
+                }
                 if (_currentPosition.value!! < this@setAnswers.size - 1) {
                     _currentPosition.value = _currentPosition.value?.plus(1)
                     clearAnswersStyle()
@@ -78,6 +73,16 @@ class QuestionsLayoutContainer(
                     activity.startWithTransaction(intent)
                 }
             }
+        }
+    }
+
+    private fun setCurrentQuestion() {
+        binding.actQuestion.text = currentQuestion.question_text
+
+        if (currentQuestion.answersAreImage) {
+            setAnswersImage(currentQuestion)
+        } else {
+            setAnswersText(currentQuestion)
         }
     }
 
