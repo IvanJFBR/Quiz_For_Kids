@@ -1,11 +1,9 @@
 package com.example.quiz_for_kids.presentation.models
 
-import androidx.annotation.DrawableRes
-
 data class QuestionDataModel(
     var id: Int,
     var question_text: String,
-    var question_image: DrawableRes? = null,
+    var question_image: Int? = null,
 
     var answersAreImage: Boolean = false,
     var option_one_text: String? = null,

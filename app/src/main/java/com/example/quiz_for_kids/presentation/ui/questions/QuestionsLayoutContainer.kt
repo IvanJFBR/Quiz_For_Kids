@@ -7,6 +7,7 @@ import com.example.quiz_for_kids.R
 import com.example.quiz_for_kids.databinding.ActivityQuestionsBinding
 import com.example.quiz_for_kids.presentation.commons.components.AnswerButtonView
 import com.example.quiz_for_kids.presentation.extensions.gone
+import com.example.quiz_for_kids.presentation.extensions.invisible
 import com.example.quiz_for_kids.presentation.extensions.startWithTransaction
 import com.example.quiz_for_kids.presentation.extensions.visible
 import com.example.quiz_for_kids.presentation.models.AnswerModel
@@ -43,7 +44,7 @@ class QuestionsLayoutContainer(
         selectedState.observe(activity) { selectedAnswer ->
             submitAnswer.apply {
                 if(_selectedState.value == null) {
-                    gone()
+                    invisible()
                 } else {
                     visible()
                 }
@@ -53,7 +54,7 @@ class QuestionsLayoutContainer(
                     } else {
                         setAnswerColor(true, selectedAnswer)
                     }
-                    gone()
+                    invisible()
                     nextQuestion.visible()
                 }
             }
@@ -76,8 +77,17 @@ class QuestionsLayoutContainer(
         }
     }
 
-    private fun setCurrentQuestion() {
+    private fun setCurrentQuestion() = with(binding) {
         binding.actQuestion.text = currentQuestion.question_text
+
+        if (currentQuestion.question_image == null) {
+            questionImage.gone()
+        } else {
+            currentQuestion.question_image?.let {
+                questionImage.setImageResource(it)
+                questionImage.visible()
+            }
+        }
 
         if (currentQuestion.answersAreImage) {
             setAnswersImage(currentQuestion)

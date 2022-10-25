@@ -5,6 +5,7 @@ import com.example.quiz_for_kids.databinding.ActivityCharacterSelectBinding
 import com.example.quiz_for_kids.presentation.extensions.startWithTransaction
 import com.example.quiz_for_kids.presentation.models.CharacterModel
 import com.example.quiz_for_kids.presentation.ui.questions.QuestionsActivity
+import com.example.quiz_for_kids.presentation.ui.questions.QuestionsData
 
 class CharacterSelectLayoutContainer(
     private val activity: CharacterSelectActivity,
@@ -32,6 +33,7 @@ class CharacterSelectLayoutContainer(
             CharacterModel.CHARACTER_THREE -> R.drawable.girl_character_one
             CharacterModel.CHARACTER_FOUR -> R.drawable.girl_character_two
         }
+        QuestionsData.score = 0
         val intent = QuestionsActivity.newIntent(activity, character)
         activity.startWithTransaction(intent)
     }
