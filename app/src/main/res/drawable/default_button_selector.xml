@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true"
-        android:drawable="@color/button_selected"/> <!-- pressed state -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle"  >
+            <corners android:radius="10dp" />
+            <stroke android:width="2dp" android:color="#658891" />
+            <gradient android:angle="-90" android:startColor="@color/button_selected" android:endColor="@color/button_selected"  />
+        </shape>
+    </item>
     <item android:state_focused="true"
-        android:drawable="@color/button_selected"/> <!-- focused state -->
-    <item android:drawable="@android:color/transparent"/> <!-- default state -->
+        android:drawable="@color/button_selected">
+        <shape android:shape="rectangle"  >
+            <corners android:radius="10dp" />
+            <stroke android:width="1dip" android:color="@color/black" />
+        </shape>
+    </item>
+    <item android:drawable="@android:color/transparent">
+        <shape android:shape="rectangle"  >
+            <corners android:radius="3dip" />
+            <stroke android:width="1dip" android:color="@color/black" />
+        </shape>
+    </item>
 </selector>

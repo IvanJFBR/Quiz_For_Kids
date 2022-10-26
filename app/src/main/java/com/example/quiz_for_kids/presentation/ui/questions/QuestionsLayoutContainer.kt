@@ -102,7 +102,7 @@ class QuestionsLayoutContainer(
             setOnClickListener {
                 clearAnswersStyle()
                 _selectedState.value = AnswerModel.ANSWER_ONE
-                background = AppCompatResources.getDrawable(context, R.color.button_selected)
+                isSelected = true
             }
         }
 
@@ -111,7 +111,7 @@ class QuestionsLayoutContainer(
             setOnClickListener {
                 clearAnswersStyle()
                 _selectedState.value = AnswerModel.ANSWER_TWO
-                background = AppCompatResources.getDrawable(context, R.color.button_selected)
+                isSelected = true
             }
         }
 
@@ -120,7 +120,7 @@ class QuestionsLayoutContainer(
             setOnClickListener {
                 clearAnswersStyle()
                 _selectedState.value = AnswerModel.ANSWER_THREE
-                background = AppCompatResources.getDrawable(context, R.color.button_selected)
+                isSelected = true
             }
         }
 
@@ -129,7 +129,7 @@ class QuestionsLayoutContainer(
             setOnClickListener {
                 clearAnswersStyle()
                 _selectedState.value = AnswerModel.ANSWER_FOUR
-                background = AppCompatResources.getDrawable(context, R.color.button_selected)
+                isSelected = true
             }
         }
     }
@@ -140,7 +140,7 @@ class QuestionsLayoutContainer(
             setOnClickListener {
                 clearAnswersStyle()
                 _selectedState.value = AnswerModel.ANSWER_ONE
-                background = AppCompatResources.getDrawable(context, R.color.button_selected)
+                isSelected = true
             }
         }
 
@@ -149,7 +149,7 @@ class QuestionsLayoutContainer(
             setOnClickListener {
                 clearAnswersStyle()
                 _selectedState.value = AnswerModel.ANSWER_TWO
-                background = AppCompatResources.getDrawable(context, R.color.button_selected)
+                isSelected = true
             }
         }
 
@@ -158,7 +158,7 @@ class QuestionsLayoutContainer(
             setOnClickListener {
                 clearAnswersStyle()
                 _selectedState.value = AnswerModel.ANSWER_THREE
-                background = AppCompatResources.getDrawable(context, R.color.button_selected)
+                isSelected = true
             }
         }
 
@@ -167,7 +167,7 @@ class QuestionsLayoutContainer(
             setOnClickListener {
                 clearAnswersStyle()
                 _selectedState.value = AnswerModel.ANSWER_FOUR
-                background = AppCompatResources.getDrawable(context, R.color.button_selected)
+                isSelected = true
             }
         }
     }
@@ -195,9 +195,9 @@ class QuestionsLayoutContainer(
     }
 
     private fun AnswerButtonView.getAnswerColor(isError: Boolean) = if (isError) {
-        AppCompatResources.getDrawable(context, R.color.button_error)
+        AppCompatResources.getDrawable(context, R.drawable.answer_button_error)
     } else {
-        AppCompatResources.getDrawable(context, R.color.button_correct)
+        AppCompatResources.getDrawable(context, R.drawable.answer_button_correct)
     }
 
     private fun clearAnswersStyle() = with(binding) {
@@ -205,19 +205,23 @@ class QuestionsLayoutContainer(
         nextQuestion.gone()
 
         answerOne.apply {
-            background = AppCompatResources.getDrawable(context, R.color.button_default)
+            background = AppCompatResources.getDrawable(context, R.drawable.answer_top_left_button_selector)
+            isSelected = false
         }
 
         answerTwo.apply {
-            background = AppCompatResources.getDrawable(context, R.color.button_default)
+            background = AppCompatResources.getDrawable(context, R.drawable.answer_top_right_button_selector)
+            isSelected = false
         }
 
         answerThree.apply {
-            background = AppCompatResources.getDrawable(context, R.color.button_default)
+            background = AppCompatResources.getDrawable(context, R.drawable.answer_bottom_left_button_selector)
+            isSelected = false
         }
 
         answerFour.apply {
-            background = AppCompatResources.getDrawable(context, R.color.button_default)
+            background = AppCompatResources.getDrawable(context, R.drawable.answer_bottom_right_button_selector)
+            isSelected = false
         }
     }
 }
